@@ -25,8 +25,6 @@ export class EventDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.params['id']);
-
-    this.event = this.eventService.getEvent(id);
+    this.event = this.eventService.getEvent(+this.route.snapshot.params['id']);
   }
 }
