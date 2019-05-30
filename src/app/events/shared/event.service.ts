@@ -5,11 +5,11 @@ import { Subject } from 'rxjs';
 @Injectable()
 export class EventService {
   getEvents() {
-    let subject = new Subject();
+    const subject = new Subject();
     setTimeout(() => {
       subject.next(events);
       subject.complete();
-    }, 2000);
+    }, 100);
     return subject;
   }
 
