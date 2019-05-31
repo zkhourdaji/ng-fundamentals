@@ -9,10 +9,11 @@ import {
   EventsListComponent,
   EventThumbnailComponent,
   EventDetailsComponent,
-  CreateEventComponent
+  CreateEventComponent,
+  CreateSessionComponent
 } from './events';
 
-import { 
+import {
   EventService,
   EventListResolver,
   EventRouteActivator
@@ -24,9 +25,15 @@ import { ToastrService } from './common/toastr.service';
 
 import { appRoutes } from './nav/routes';
 import { Error404Component } from './errors/Error404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    ReactiveFormsModule
+  ],
   declarations: [
     NavbarComponent,
     EventsAppComponent,
@@ -34,7 +41,9 @@ import { Error404Component } from './errors/Error404.component';
     EventThumbnailComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    CreateSessionComponent,
     Error404Component
+
   ],
   bootstrap: [EventsAppComponent],
   providers: [
@@ -46,7 +55,7 @@ import { Error404Component } from './errors/Error404.component';
     EventListResolver
   ]
 })
-export class AppModule {}
+export class AppModule { }
 
 export function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty) {
