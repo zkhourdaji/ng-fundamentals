@@ -4,6 +4,7 @@ import { EventThumbnailComponent } from './event-thumbnail.component';
 import { EventDetailsComponent } from './event-details.component';
 import { CreateEventComponent } from './create-event.component';
 import { CreateSessionComponent } from './create-session.component';
+import { SessionListComponent } from './session-list.component';
 
 export {
   EventsAppComponent,
@@ -11,5 +12,6 @@ export {
   EventThumbnailComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  CreateSessionComponent
+  CreateSessionComponent,
+  SessionListComponent
 };

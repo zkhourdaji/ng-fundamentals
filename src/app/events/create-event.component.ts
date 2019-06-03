@@ -10,7 +10,7 @@ import { EventService } from './shared/event.service';
       color:#E05C65;
       padding-left: 10px;
     }
-    .error input {
+    .error input, .error select, .error textarea{
       background-color: #E3C3C5;
     }
   `]

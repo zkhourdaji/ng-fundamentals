@@ -10,7 +10,8 @@ import {
   EventThumbnailComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  CreateSessionComponent
+  CreateSessionComponent,
+  SessionListComponent
 } from './events';
 
 import {
@@ -42,8 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EventDetailsComponent,
     CreateEventComponent,
     CreateSessionComponent,
-    Error404Component
-
+    Error404Component,
+    SessionListComponent
   ],
   bootstrap: [EventsAppComponent],
   providers: [
