@@ -14,6 +14,8 @@ import {
   SessionListComponent
 } from './events';
 
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
+
 import {
   EventService,
   EventListResolver,
@@ -44,7 +46,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateEventComponent,
     CreateSessionComponent,
     Error404Component,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   bootstrap: [EventsAppComponent],
   providers: [
