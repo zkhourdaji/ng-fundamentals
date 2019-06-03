@@ -19,7 +19,8 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
 import {
   EventService,
   EventListResolver,
-  EventRouteActivator
+  EventRouteActivator,
+  DurationPipe
 } from './events/shared';
 
 import { NavbarComponent } from './nav/navbar.component';
@@ -47,7 +48,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateSessionComponent,
     Error404Component,
     SessionListComponent,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   bootstrap: [EventsAppComponent],
   providers: [
