@@ -25,11 +25,13 @@ import {
 
 import { NavbarComponent } from './nav/navbar.component';
 // SERVICES
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 
 import { appRoutes } from './nav/routes';
 import { Error404Component } from './errors/Error404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+let toastr:Toastr = window['toastr'];
 
 @NgModule({
   imports: [
@@ -55,7 +57,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   providers: [
     AuthService,
     EventService,
-    ToastrService,
+    {
+      provide: TOASTR_TOKEN,
+      useValue: toastr
+    },
     EventRouteActivator,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver
