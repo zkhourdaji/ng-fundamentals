@@ -6,6 +6,7 @@ import { CreateEventComponent } from './create-event.component';
 import { CreateSessionComponent } from './create-session.component';
 import { SessionListComponent } from './session-list.component';
 import { UpVoteComponent } from './upvote.component';
+import { LocationValidator } from './location-validator.directive';
 
 export {
   EventsAppComponent,
@@ -15,5 +16,6 @@ export {
   CreateEventComponent,
   CreateSessionComponent,
   SessionListComponent,
-  UpVoteComponent
+  UpVoteComponent,
+  LocationValidator
 };
