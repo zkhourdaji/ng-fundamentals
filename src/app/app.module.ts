@@ -36,6 +36,8 @@ import { Error404Component } from './errors/Error404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleModalComponent } from './common/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
+import { UpVoteComponent } from './events/upvote.component';
+import { VoterService } from './events/voter.service';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -60,7 +62,8 @@ let jQuery = window['$'];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpVoteComponent
   ],
   bootstrap: [EventsAppComponent],
   providers: [
@@ -75,6 +78,7 @@ let jQuery = window['$'];
       useValue: jQuery
     },
     EventRouteActivator,
+    VoterService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
     EventListResolver
   ]

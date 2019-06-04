@@ -5,6 +5,7 @@ import { EventDetailsComponent } from './event-details.component';
 import { CreateEventComponent } from './create-event.component';
 import { CreateSessionComponent } from './create-session.component';
 import { SessionListComponent } from './session-list.component';
+import { UpVoteComponent } from './upvote.component';
 
 export {
   EventsAppComponent,
@@ -13,5 +14,6 @@ export {
   EventDetailsComponent,
   CreateEventComponent,
   CreateSessionComponent,
-  SessionListComponent
+  SessionListComponent,
+  UpVoteComponent
 };
