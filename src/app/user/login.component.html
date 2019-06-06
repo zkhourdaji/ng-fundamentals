@@ -1,58 +1,27 @@
 <h1>Login</h1>
 <hr />
 <div class="col-md-4">
-  <form
-    #loginForm="ngForm"
-    (ngSubmit)="login(loginForm.value)"
-    autocomplete="off"
-  >
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off">
     <div class="form-group">
       <label for="username">User Name:</label>
-      <em
-        *ngIf="
+      <em *ngIf="
           loginForm.controls.username?.invalid &&
           (loginForm.controls.username?.touched || mouseoverLogin)
-        "
-        >Required</em
-      >
-      <input
-        required
-        (ngModel)="(username)"
-        name="username"
-        id="username"
-        type="text"
-        class="form-control"
-        placeholder="User Name..."
-      />
+        ">Required</em>
+      <input required (ngModel)="(username)" name="username" id="username" type="text" class="form-control"
+        placeholder="User Name..." />
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <em
-        *ngIf="
+      <em *ngIf="
           loginForm.controls.password?.invalid &&
           (loginForm.controls.password?.touched || mouseoverLogin)
-        "
-        >Required</em
-      >
-      <input
-        required
-        (ngModel)="(password)"
-        id="password"
-        type="password"
-        name="password"
-        class="form-control"
-        placeholder="Password..."
-      />
+        ">Required</em>
+      <input required (ngModel)="(password)" id="password" type="password" name="password" class="form-control"
+        placeholder="Password..." />
     </div>
-    <span
-      (mouseenter)="mouseoverLogin = true"
-      (mouseleave)="mouseoverLogin = false"
-    >
-      <button
-        [disabled]="loginForm.invalid"
-        type="submit"
-        class="btn btn-primary"
-      >
+    <span (mouseenter)="mouseoverLogin = true" (mouseleave)="mouseoverLogin = false">
+      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">
         Login
       </button>
     </span>
@@ -61,4 +30,8 @@
       Cancel
     </button>
   </form>
+
+  <div *ngIf="loginInvalid" class="alert alert-danger" style="margin-top: 20px">
+    Invalid Login Info
+  </div>
 </div>

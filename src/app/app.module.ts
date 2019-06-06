@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './user';
+
 
 // COMPONENTS
 import {
@@ -11,7 +13,10 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   CreateSessionComponent,
-  SessionListComponent
+  SessionListComponent,
+  EventResolver,
+  LocationValidator,
+  VoterService
 } from './events';
 
 
@@ -25,7 +30,6 @@ import {
 import {
   EventService,
   EventListResolver,
-  EventRouteActivator,
   DurationPipe
 } from './events/shared';
 
@@ -37,8 +41,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleModalComponent } from './common/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { UpVoteComponent } from './events/upvote.component';
-import { VoterService } from './events/voter.service';
-import { LocationValidator } from './events/location-validator.directive';
 
 let toastr: Toastr = window['toastr'];
 let jQuery = window['$'];
@@ -48,7 +50,8 @@ let jQuery = window['$'];
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     NavbarComponent,
@@ -79,10 +82,10 @@ let jQuery = window['$'];
       provide: JQ_TOKEN,
       useValue: jQuery
     },
-    EventRouteActivator,
     VoterService,
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
-    EventListResolver
+    EventListResolver,
+    EventResolver
   ]
 })
 export class AppModule { }

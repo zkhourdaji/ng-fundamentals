@@ -4,10 +4,11 @@ import {
   EventsListComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  CreateSessionComponent
+  CreateSessionComponent,
+  EventResolver
 } from '../events';
 
-import { EventRouteActivator, EventListResolver } from '../events/shared';
+import { EventListResolver } from '../events/shared';
 import { Error404Component } from '../errors/Error404.component';
 
 export const appRoutes: Routes = [
@@ -19,12 +20,20 @@ export const appRoutes: Routes = [
   {
     path: 'events',
     component: EventsListComponent,
-    resolve: { events: EventListResolver }
+    resolve: {
+      // events will be available in the component as
+      // route.snapshot.data['events']
+      events: EventListResolver
+    }
   },
   {
     path: 'events/:id',
     component: EventDetailsComponent,
-    canActivate: [EventRouteActivator]
+    resolve: {
+      // event will be available in the component as
+      // route.snapshot.data['event']
+      event: EventResolver
+    }
   },
   { path: 'events/session/new', component: CreateSessionComponent },
   { path: '404', component: Error404Component },
