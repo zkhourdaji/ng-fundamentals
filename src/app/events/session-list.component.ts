@@ -8,12 +8,15 @@ import { VoterService } from './voter.service';
   selector: 'session-list'
 })
 export class SessionListComponent implements OnChanges {
+
   @Input() sessions: ISession[];
   @Input() filterBy: string;
   @Input() sortBy: string;
+  @Input() eventId: number;
+
   visibleSessions: ISession[] = [];
 
-  constructor(private authService: AuthService, private voterService: VoterService){
+  constructor(private authService: AuthService, private voterService: VoterService) {
 
   }
 
@@ -24,17 +27,17 @@ export class SessionListComponent implements OnChanges {
     }
   }
 
-  toggleVote(session: ISession){
-    if (this.userHasVoted(session)){
-      this.voterService.deleteVoter(session, this.authService.currentUser.userName);
+  toggleVote(session: ISession) {
+    if (this.userHasVoted(session)) {
+      this.voterService.deleteVoter(this.eventId, session, this.authService.currentUser.userName);
     } else {
-      this.voterService.addVoter(session, this.authService.currentUser.userName);
+      this.voterService.addVoter(this.eventId, session, this.authService.currentUser.userName);
     }
     if (this.sortBy === 'votes')
-    this.visibleSessions.sort(sortByVotesDesc);
+      this.visibleSessions.sort(sortByVotesDesc);
   }
 
-  userHasVoted(session: ISession){
+  userHasVoted(session: ISession) {
     return this.voterService.userHasVoted(session, this.authService.currentUser.userName);
   }
 

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { EventService } from './event.service';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class EventListResolver implements Resolve<any> {
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) { }
 
+  // angular automatically subscribes to observables in resolvers
   resolve() {
-    return this.eventService.getEvents().pipe(map(events => events));
+    return this.eventService.getEvents();
   }
 }
