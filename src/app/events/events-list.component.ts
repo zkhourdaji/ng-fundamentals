@@ -20,10 +20,10 @@ import { ActivatedRoute } from '@angular/router';
   `
 })
 export class EventsListComponent implements OnInit {
+  // events is passed by the events resolver
   events: IEvent[];
 
   constructor(
-    private eventService: EventService,
     private route: ActivatedRoute
   ) { }
 

@@ -1,6 +1,6 @@
 import { SessionListComponent } from './session-list.component';
-import { ISession } from './shared/event.model';
-import { AuthService } from '../user/auth.service';
+import { ISession } from '../shared/event.model';
+import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
 
 describe('SessionListComponent', () => {

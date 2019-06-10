@@ -15,7 +15,8 @@ import {
   SessionListComponent,
   EventResolver,
   LocationValidator,
-  VoterService
+  VoterService,
+  UpVoteComponent
 } from './events';
 
 
@@ -39,7 +40,6 @@ import { Error404Component } from './errors/Error404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleModalComponent } from './common/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
-import { UpVoteComponent } from './events/upvote.component';
 
 // tslint:disable-next-line: no-string-literal
 const toastr: Toastr = window['toastr'];

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ISession } from './shared/event.model';
+import { ISession } from '../shared/event.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';

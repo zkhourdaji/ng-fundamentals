@@ -8,6 +8,10 @@ export class EventResolver implements Resolve<any> {
 
   }
 
+  /*
+  Resolver will run before the instantiation of EventsListComponent.
+  the returned data is available to the component under this.route.snapshot.data
+  */
   resolve(route: ActivatedRouteSnapshot) {
     return this.eventService.getEvent(route.params.id);
   }

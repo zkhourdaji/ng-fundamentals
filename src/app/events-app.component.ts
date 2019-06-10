@@ -13,6 +13,7 @@ export class EventsAppComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    // on app load or page refresh set the current user inside the auth service if they already logged in
     this.authService.checkAuthenticationStatus();
   }
 }

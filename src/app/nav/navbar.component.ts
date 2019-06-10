@@ -20,10 +20,11 @@ export class NavbarComponent {
   searchTerm = '';
   foundSessions: ISession[];
 
+  // AuthService is used inside the template to display the username if they're logged in
   constructor(public authService: AuthService, private eventService: EventService) { }
 
-  searchSessions(searchTerm) {
-    console.log(searchTerm);
+  // gets called when the user submits the search form in the navbar
+  searchSessions(searchTerm: string) {
     this.eventService.searchSessions(searchTerm).subscribe(sessions => this.foundSessions = sessions);
   }
 }

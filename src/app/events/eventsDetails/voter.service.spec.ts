@@ -1,5 +1,5 @@
 import { VoterService } from './voter.service';
-import { ISession } from './shared/event.model';
+import { ISession } from '../shared/event.model';
 import { of } from 'rxjs';
 
 describe('VoterService', () => {
