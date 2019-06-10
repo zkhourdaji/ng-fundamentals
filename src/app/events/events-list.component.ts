@@ -12,9 +12,9 @@ import { ActivatedRoute } from '@angular/router';
         *ngFor="let event of events"
         class="col-md-5"
       >
-        <event-thumbnail
+        <app-event-thumbnail
           [event]="event"
-        ></event-thumbnail>
+        ></app-event-thumbnail>
       </div>
     </div>
   `
@@ -28,6 +28,6 @@ export class EventsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.events = this.route.snapshot.data['events'];
+    this.events = this.route.snapshot.data.events;
   }
 }

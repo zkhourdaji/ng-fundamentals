@@ -12,4 +12,4 @@ export {
   JQ_TOKEN,
   SimpleModalComponent,
   ModalTriggerDirective
-}
+};

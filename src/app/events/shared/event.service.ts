@@ -1,7 +1,6 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { events } from './events';
+import { Injectable } from '@angular/core';
 import { IEvent, ISession } from './event.model';
-import { Subject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
@@ -17,11 +16,11 @@ export class EventService {
       .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }
 
-  private handleError<T>(operation = "operation", result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);
-    }
+    };
   }
 
   getEvent(id: number): Observable<IEvent> {
@@ -35,7 +34,7 @@ export class EventService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<IEvent>("/api/events", event, options)
+    return this.http.post<IEvent>('/api/events', event, options)
       .pipe(catchError(this.handleError<IEvent>('saveEvent')));
   }
 

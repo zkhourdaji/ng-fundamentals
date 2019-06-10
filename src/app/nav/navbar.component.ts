@@ -4,7 +4,7 @@ import { ISession } from '../events/shared/event.model';
 import { EventService } from '../events/shared/event.service';
 
 @Component({
-  selector: 'nav-bar',
+  selector: 'app-nav-bar',
   templateUrl: './navbar.component.html',
   styles: [
     `
@@ -17,14 +17,13 @@ import { EventService } from '../events/shared/event.service';
 })
 export class NavbarComponent {
 
-  searchTerm: string = "";
+  searchTerm = '';
   foundSessions: ISession[];
 
-  constructor(public authService: AuthService,
-    private eventService: EventService) {
-  }
+  constructor(public authService: AuthService, private eventService: EventService) { }
 
   searchSessions(searchTerm) {
-     this.eventService.searchSessions(searchTerm).subscribe(sessions => this.foundSessions = sessions);
+    console.log(searchTerm);
+    this.eventService.searchSessions(searchTerm).subscribe(sessions => this.foundSessions = sessions);
   }
 }

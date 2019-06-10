@@ -1,14 +1,12 @@
 import { Component, Input, ViewChild, ElementRef, Inject } from '@angular/core';
-import { $ } from 'protractor';
 import { JQ_TOKEN } from './jQuery.service';
 
 @Component({
-  selector: 'simple-modal',
+  selector: 'app-simple-modal',
   template: `
     <div id="{{elementId}}" #modalcontainer class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
-        
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">
               <span>&times;</span>
@@ -17,18 +15,16 @@ import { JQ_TOKEN } from './jQuery.service';
               {{title}}
             </h4>
           </div>
-          
           <div class="modal-body" (click)="closeModal()">
             <ng-content></ng-content>
           </div>
-        
         </div>
       </div>
     </div>
   `,
   styles: [`
     .modal-body {
-      height: 250px; 
+      height: 250px;
       overflow-y: scroll;
     }
   `]
@@ -40,13 +36,11 @@ export class SimpleModalComponent {
   @ViewChild('modalcontainer') containerEl: ElementRef;
   @Input() closeOnBodyClick: string;
 
-  constructor(@Inject(JQ_TOKEN) private $: any) {
-
-  }
+  constructor(@Inject(JQ_TOKEN) private jQuery: any) { }
 
   closeModal() {
     if (this.closeOnBodyClick.toLocaleLowerCase() === 'true') {
-      this.$(this.containerEl.nativeElement).modal('hide');
+      this.jQuery(this.containerEl.nativeElement).modal('hide');
     }
   }
 }

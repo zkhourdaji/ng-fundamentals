@@ -21,8 +21,8 @@ import { ISession } from './shared/event.model';
 export class EventDetailsComponent implements OnInit {
   event: IEvent;
   addMode: boolean;
-  filterBy: string = 'all';
-  sortBy: string = 'votes';
+  filterBy = 'all';
+  sortBy = 'votes';
 
   constructor(
     private eventService: EventService,
@@ -31,9 +31,9 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.forEach((data) => {
-      this.event = data['event'];
+      this.event = data.event;
       this.addMode = false;
-    })
+    });
   }
 
   addSession() {
@@ -44,7 +44,7 @@ export class EventDetailsComponent implements OnInit {
     const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
     newSession.id = nextId + 1;
     this.event.sessions.push(newSession);
-    this.eventService.saveEvent(this.event).subsrcibe();
+    this.eventService.saveEvent(this.event).subscribe();
     this.addMode = false;
   }
 

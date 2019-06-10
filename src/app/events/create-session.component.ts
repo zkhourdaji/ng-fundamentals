@@ -4,11 +4,11 @@ import { ISession } from './shared/event.model';
 import { restrictedWords } from './shared/restrictedWords.validator';
 
 @Component({
-  selector: 'create-session',
+  selector: 'app-create-session',
   templateUrl: './create-session.component.html',
   styles: [`
     em {
-      float: right; 
+      float: right;
       color:#E05C65;
       padding-left: 10px;
     }
@@ -46,7 +46,7 @@ export class CreateSessionComponent implements OnInit {
       duration: this.duration,
       level: this.level,
       abstract: this.abstract
-    })
+    });
   }
 
   saveSession(formValues) {

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { IEvent } from './shared';
 
 @Component({
-  selector: 'event-thumbnail',
+  selector: 'app-event-thumbnail',
   templateUrl: './event-thumbnail.component.html',
   styles: [
     `
@@ -28,7 +28,9 @@ export class EventThumbnailComponent {
   @Input() event: IEvent;
 
   getStartTimeClass() {
-    if (this.event && this.event.time === '8:00 am') return ['bold', 'green'];
+    if (this.event && this.event.time === '8:00 am') {
+      return ['bold', 'green'];
+    }
     return [];
   }
 }

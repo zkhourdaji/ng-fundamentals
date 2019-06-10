@@ -7,9 +7,7 @@ import { Observable, of } from 'rxjs';
 @Injectable()
 export class VoterService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   deleteVoter(eventId: number, session: ISession, voterName: string) {
     session.voters = session.voters.filter(voter => voter !== voterName);
@@ -26,7 +24,7 @@ export class VoterService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    }
+    };
     this.http.post(url, {}, options).pipe(catchError(this.handleError('addVoter'))).subscribe();
   }
 
@@ -35,10 +33,10 @@ export class VoterService {
   }
 
 
-  private handleError<T>(operation = "operation", result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
       return of(result as T);
-    }
+    };
   }
 }

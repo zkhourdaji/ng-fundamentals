@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './user';
 
-
 // COMPONENTS
 import {
   EventsAppComponent,
@@ -42,8 +41,10 @@ import { SimpleModalComponent } from './common/simple-modal.component';
 import { ModalTriggerDirective } from './common/modal-trigger.directive';
 import { UpVoteComponent } from './events/upvote.component';
 
-let toastr: Toastr = window['toastr'];
-let jQuery = window['$'];
+// tslint:disable-next-line: no-string-literal
+const toastr: Toastr = window['toastr'];
+// tslint:disable-next-line: no-string-literal
+const jQuery = window['$'];
 
 @NgModule({
   imports: [
